@@ -4,9 +4,8 @@ export interface PersonalInfo {
   middleName?: string;
   lastName?: string;
 
-  /** Country Code to be added as prefix to */
-  countrycode: string;
-  phone: string;
+  /** TimeZone */
+  timeZone?: string;
 
   /** Email Address */
   email: string;

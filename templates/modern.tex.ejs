@@ -1,0 +1,124 @@
+\documentclass[]{resume-openfont}
+
+\pagestyle{fancy}
+\resetHeaderAndFooter
+
+
+\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
+\newcommand{\achievement}[2]{\textbf{#1}\descript\hfill\location{#2}\fakeNewLine}
+
+\newcommand{\educationHeading}[4]{\runsubsection{#1}\hspace*{\fill}  \location{#3 | #4}\\
+\descript{#2}\fakeNewLine}
+
+\newcommand{\projectHeading}[3]{\Project{#1}{#2}
+\descript{#3}\\}
+
+\newcommand{\projectHeadingWithDate}[4]{\Project{#1}{#2}
+\descript{#3 | #4}\\}
+
+\newcommand{\courseGrade}[2]{\textbf{#1:} #2}
+
+
+ 
+%--------------------------------------------------------------
+\begin{document}
+
+%--------------------------------------------------------------
+%     Profile
+%--------------------------------------------------------------
+\newcommand{\yourName}{<%- personalData.firstName %> <%- personalData.lastName %>}
+\newcommand{\yourEmail}{<%- personalData.email %>}
+
+\begin{center}
+    \Huge \scshape \latoRegular{\yourName} \\ \vspace{1pt}
+    \small \href{mailto:\yourEmail}{\underline{\yourEmail}}
+    <% if (personalData.urls.length > 0) { -%>
+     <% personalData.urls.forEach(e => { -%>
+        $|$\href{<%- e.url -%>}{\underline{<%- e.name -%>}}
+      <% }) -%>
+    <% } -%>
+\end{center}
+
+%--------------------------------------------------------------
+%     Education
+%--------------------------------------------------------------
+
+<% if (educationData.length > 0) { %>
+  \section{Education}
+ <% educationData.forEach(e => { %>
+  \educationHeading{<%- e.degree %>}{<%- e.school %>}{<%- e.location %>}
+  {<%- e.startDate.toLocaleString('en', {month: 'short', year: 'numeric'}) 
+        + '-'
+        + e.endDate.toLocaleString('en', {month: 'short', year: 'numeric'})
+  %>}
+
+  \courseGrade{<%- e.gradeType %>}{<%- e.grade %>}
+  \sectionsep
+ <% }) %>
+<% } %>
+
+%--------------------------------------------------------------
+%     Skills
+%--------------------------------------------------------------
+
+<% if (skills.length > 0) { %> 
+    \section{Skills}
+    \begin{skillList}    
+        <% skills.forEach(e => { %>
+         \singleItem{<%- e.name %>:}{<%- e.skills.join(', ') %>}
+         \\
+        <% }) %>
+    \end{skillList}
+<% } %>
+
+
+
+%--------------------------------------------------------------
+%     Experience
+%--------------------------------------------------------------
+
+<% if (experiences.length > 0) { %>
+    \section{Work Experience}
+    <% experiences.forEach(e => { %>
+        \resumeHeading{<%- e.organisation %>}{<%- e.position %>}{<%- e.location ?? 'Remote' %>}{<%- e.startDate.toLocaleString('en', {month: 'short', year: 'numeric'}) 
+        + '-'
+        + !e.endDate ? 'Present' : e.endDate.toLocaleString('en', {month: 'short', year: 'numeric'})
+        %>}
+        \sectionsep
+    <% }) %>
+<% } %>
+
+
+%--------------------------------------------------------------
+%     Projects
+%--------------------------------------------------------------
+<% if (projects.length > 0) { %>
+    \section{Projects}
+    <% projects.forEach(e => { %>
+        \projectHeading{<%- e.name %>}{<%- e.url %>}{<%- e.technologies.join(', ') %>}
+    <% if (Array.isArray(e.description)) { %>
+        \begin{bullets}
+            <% e.description.forEach(hs => { %>
+                \item <%- hs %>
+            <% }) %>
+        \end{bullets}
+    <% } else { %>
+     <%- e.description %>
+    <% } %>
+    \sectionsep
+    <% })} %>
+  
+
+%--------------------------------------------------------------
+%     Achievements
+%--------------------------------------------------------------
+<% if (achievements.length > 0) { %>
+    \section{Achievements}
+    \begin{achievements}
+        <% achievements.forEach(e => { %>
+            \achievement{<%- e.description %>}{<%- e.date.toLocaleString('en', {month: 'short', year: 'numeric'}) %>}
+            \\
+        <% }) %>
+    \end{achievements}
+<% } %>
+\end{document}

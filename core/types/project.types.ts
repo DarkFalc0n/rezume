@@ -2,9 +2,6 @@ export interface Project {
   /**Project name */
   name: string;
 
-  /**Project date */
-  date: Date;
-
   /**Project description */
   description: string | string[];
 

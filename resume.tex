@@ -1,0 +1,154 @@
+\documentclass[]{resume-openfont}
+
+\pagestyle{fancy}
+\resetHeaderAndFooter
+
+
+\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
+\newcommand{\achievement}[2]{\textbf{#1}\descript\hfill\location{#2}\fakeNewLine}
+
+\newcommand{\educationHeading}[4]{\runsubsection{#1}\hspace*{\fill}  \location{#3 | #4}\\
+\descript{#2}\fakeNewLine}
+
+\newcommand{\projectHeading}[3]{\Project{#1}{#2}
+\descript{#3}\\}
+
+\newcommand{\projectHeadingWithDate}[4]{\Project{#1}{#2}
+\descript{#3 | #4}\\}
+
+\newcommand{\courseGrade}[2]{\textbf{#1:} #2}
+
+
+ 
+%--------------------------------------------------------------
+\begin{document}
+
+%--------------------------------------------------------------
+%     Profile
+%--------------------------------------------------------------
+\newcommand{\yourName}{Pratyay Roy}
+\newcommand{\yourEmail}{pratyayroy20@gmail.com}
+
+\begin{center}
+    \Huge \scshape \latoRegular{\yourName} \\ \vspace{1pt}
+    \small \href{mailto:\yourEmail}{\underline{\yourEmail}}
+                 $|$\href{https://www.linkedin.com/in/pratyayroy/}{\underline{LinkedIn}}
+              $|$\href{https://www.github.com/darkfalc0n}{\underline{GitHub}}
+          \end{center}
+
+%--------------------------------------------------------------
+%     Education
+%--------------------------------------------------------------
+
+
+  \section{Education}
+ 
+  \educationHeading{Bachelor of Technology in Information Technology}{Jalpaiguri Government Engineering College (Autonomous)}{Jalpaiguri, India}
+  {Aug 2021-Jul 2025}
+
+  \courseGrade{CGPA}{8.75}
+  \sectionsep
+ 
+  \educationHeading{Senior Secondary}{Army Public School, Barrackpore}{Barrackpore, India}
+  {May 2018-May 2020}
+
+  \courseGrade{Percentage}{94}
+  \sectionsep
+ 
+
+
+%--------------------------------------------------------------
+%     Skills
+%--------------------------------------------------------------
+
+ 
+    \section{Skills}
+    \begin{skillList}    
+        
+         \singleItem{Languages:}{Typescript,  Javascript,  C,  C++,  C#,  SQL Python,  Dart,  Lua,  Bash,  HTML,  CSS}
+         \\
+        
+         \singleItem{Frameworks:}{NextJs, ReactJs, NodeJS, Bun, Hono, ExpressJs, React Native, Vue, Flutter, MySQL}
+         \\
+        
+         \singleItem{Tools:}{Git, Expo, Docker, Figma, Unity}
+         \\
+        
+         \singleItem{Platforms:}{Linux (Ubuntu and Arch), Windows, Web, GCP, AWS}
+         \\
+        
+         \singleItem{Soft Skills:}{System Design, Public Speaking, Content Writing, Teamwork}
+         \\
+        
+    \end{skillList}
+
+
+
+
+%--------------------------------------------------------------
+%     Experience
+%--------------------------------------------------------------
+
+
+    \section{Work Experience}
+    
+        \resumeHeading{KoinX}{Frontend Developer Intern}{Remote}{Present}
+        \sectionsep
+    
+        \resumeHeading{Engineer's Cradle}{Frontend Engineer Intern}{Remote}{Present}
+        \sectionsep
+    
+        \resumeHeading{GSoC 2024, Accepted contributor @Joplin}{Open-Source Contributor}{Remote}{Present}
+        \sectionsep
+    
+        \resumeHeading{Dualite}{Software Developer Intern}{Remote}{Present}
+        \sectionsep
+    
+
+
+
+%--------------------------------------------------------------
+%     Projects
+%--------------------------------------------------------------
+
+    \section{Projects}
+    
+        \projectHeading{Role Based Access Control (RBAC) Demo}{}{React, TypeScript, Tailwind CSS}
+    
+     Admin Dashboard to perform CRUD operations on various entities like users, roles and permissions.
+    
+    \sectionsep
+    
+  
+
+%--------------------------------------------------------------
+%     Achievements
+%--------------------------------------------------------------
+
+    \section{Achievements}
+    \begin{achievements}
+        
+            \achievement{Accepted as contributor in GSoC’24 @Joplin}{Jun 2024}
+            \\
+        
+            \achievement{Smart India Hackathon 2022 Winner}{Sep 2022}
+            \\
+        
+            \achievement{Smart India Hackathon 2023 Finalist}{Jan 2024}
+            \\
+        
+            \achievement{UNESCO India Africa Hackathon 2022 Finalist}{Dec 2022}
+            \\
+        
+            \achievement{2nd Position at Hack4Bengal 3.0}{Jul 2024}
+            \\
+        
+            \achievement{4th Position at RCS CTF, by Encrpt Edge, LPU}{Feb 2024}
+            \\
+        
+            \achievement{Secured 6th position in MANIT ESummit hackathon}{Mar 2023}
+            \\
+        
+    \end{achievements}
+
+\end{document}
