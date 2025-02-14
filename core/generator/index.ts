@@ -1,5 +1,6 @@
-import fs from "fs";
+import fse from "fs-extra";
 import ejs from "ejs";
+import {args} from "./args";
 import {
   achievements,
   educationData,
@@ -10,9 +11,6 @@ import {
 } from "../constants/data";
 
 export function generate() {
-  
-  
-  const template = fs.readFileSync("/home/darkfalcon/Projects/my-resume-gen/templates/modern.tex.ejs", "utf-8");
 
   const data = {
     achievements,
@@ -23,7 +21,7 @@ export function generate() {
     personalData,
   };
 
-  const rendered = ejs.render(template, data);
+  const rendered = ejs.render(args.template, data);
 
-  fs.writeFileSync("resume.tex", rendered);
+  fse.outputFileSync(args.output, rendered);
 }
