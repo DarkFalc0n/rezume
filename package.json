@@ -1,5 +1,9 @@
 {
-  "name": "my-resume-gen",
+  "name": "rezume",
+  "author": {
+    "name": "Pratyay Roy",
+    "email": "pratyayroy20@gmail.com"
+  },
   "module": "index.ts",
   "type": "module",
   "scripts": {

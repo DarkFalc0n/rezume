@@ -21,7 +21,7 @@ export function generate() {
     personalData,
   };
 
-  const rendered = ejs.render(args.template, data);
+  const renderedFile = ejs.render(args.template, data);
 
-  fse.outputFileSync(args.output, rendered);
+  fse.outputFileSync(args.output, renderedFile);
 }
